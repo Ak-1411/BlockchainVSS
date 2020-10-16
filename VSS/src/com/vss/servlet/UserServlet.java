@@ -1,4 +1,13 @@
 package com.vss.servlet;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.vss.dao.UserDAO;
+import com.vss.model.User;
+import com.vss.util.DBConnection;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -62,9 +71,33 @@ public class UserServlet extends HttpServlet
             }
             else
             {
+	Connection con = null;
+                boolean result = false;
+                try
+                {
+                   con = DBConnection.connect();
+                   ResultSet rs = con.createStatement().executeQuery("select count(*) from user where email='" + email + "'");
+                   rs.next();
+                   result = rs.getInt(1) > 0 ? true : false;
+                }
+                catch (Exception e)
+                {
+                   e.printStackTrace();
+                }
+                finally
+                {
+                   con.close();
+                }
+                if(result)
+                {
+	resp.sendRedirect("register.jsp?msg=Account Is Already Registered");
+                }
+                else
+                {
+	dao.register(user);
+	resp.sendRedirect("register.jsp?msg=Registration Successful");
 
-               dao.register(user);
-               resp.sendRedirect("register.jsp?msg=Registration Successful");
+                }
             }
          }
          else if (request_type.equals("login"))

@@ -10,13 +10,13 @@ public class VerificationDAOImpl implements VerificationDAO
 {
 
    @Override
-   public void verify(String email) throws Exception
+   public void verify(String mobile) throws Exception
    {
       Connection con = null;
       try
       {
          con = DBConnection.connect();
-         con.createStatement().execute("insert into verification values ('" + email + "', 'VERIFIED') ");
+         con.createStatement().execute("insert into verification values ('" + mobile + "', 'VERIFIED') ");
       }
       catch (Exception e)
       {
@@ -30,14 +30,14 @@ public class VerificationDAOImpl implements VerificationDAO
    }
 
    @Override
-   public boolean isVerified(String email) throws Exception
+   public boolean isVerified(String mobile) throws Exception
    {
       Connection con = null;
       boolean result = false;
       try
       {
          con = DBConnection.connect();
-         ResultSet rs = con.createStatement().executeQuery("select count(*) from verification where email='" + email + "' and status='VERIFIED'");
+         ResultSet rs = con.createStatement().executeQuery("select count(*) from verification where mobile='" + mobile + "' and status='VERIFIED'");
          rs.next();
          result = rs.getInt(1) > 0 ? true : false;
       }

@@ -27,7 +27,7 @@ public class SendMail {
 
 		try {
 			Message message = new MimeMessage(session);
-			message.setFrom(new InternetAddress("aklc.contact@gmail.com", "BC VSS"));
+			message.setFrom(new InternetAddress("amithkrishna1411@gmail.com", "BC VSS"));
 
 			Address[] rcv = new InternetAddress[to.size()];
 			int i = 0;

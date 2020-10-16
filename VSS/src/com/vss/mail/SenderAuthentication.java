@@ -8,7 +8,7 @@ public class SenderAuthentication extends Authenticator {
 	@Override
 	protected PasswordAuthentication getPasswordAuthentication() {
 		return (new PasswordAuthentication(
-				"aklc.contact@gmail.com",
-				"xxxxxxxxxx"));
+				"amithkrishna1411@gmail.com",
+				"anuradharameshashaamithkrishna"));
 	}
 }
