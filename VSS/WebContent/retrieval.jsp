@@ -64,8 +64,8 @@ Website: http://www.webthemez.com/
 			</div>
 
 			<div
-				style='float: right; margin-top: 20px; margin-right: 20px; font-weight: bold;'>Ashok
-				Kumar Learning Center (AKLC)</div>
+				style='float: right; margin-top: 20px; margin-right: 20px; font-weight: bold;'>XON LABS
+				</div>
 
 		</nav>
 		<!--/. NAV TOP  -->
@@ -156,9 +156,8 @@ Website: http://www.webthemez.com/
 												
 										   		<form id='frm'  action='retrieval' method=post class='col-md-6' >
 										   			<input type=hidden name='req_type' value='verify' />
-										   			<label>Email Verification Code</label>
-										   			<input type=text name='emailCode' class='form-control' placeholder="Email Code" required="required"/>
-										   			<br/>
+										   			
+										   			
 										   			<label>Mobile Verification Code</label>
 										   			<input type=text name='mobileCode' class='form-control' placeholder="Mobile Code" required="required"/>
 										   			<br/>
@@ -175,7 +174,7 @@ Website: http://www.webthemez.com/
 							   						<hr/>
 							   						<label>Authorization Required for Footage Retrieval</label>
 							   						<hr/>
-							   						<label>The Verification Code will be sent to your registered Email and Mobile Number</label>
+							   						<label>The Verification Code will be sent to your Mobile Number</label>
 							   						<hr/>
 							   						<%
 							   							BlockChainService bcService = new BlockChainService();
