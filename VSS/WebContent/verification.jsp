@@ -59,8 +59,8 @@ Website: http://www.webthemez.com/
 			</div>
 
 			<div
-				style='float: right; margin-top: 20px; margin-right: 20px; font-weight: bold;'>Ashok
-				Kumar Learning Center (AKLC)</div>
+				style='float: right; margin-top: 20px; margin-right: 20px; font-weight: bold;'>XON LABS
+				</div>
 
 		</nav>
 		<!--/. NAV TOP  -->
@@ -136,9 +136,8 @@ Website: http://www.webthemez.com/
 										   %>
 										   		<form action='verification' method=post class='col-md-6' >
 										   			<input type=hidden name='req_type' value='verify' />
-										   			<label>Email Verification Code</label>
-										   			<input type=text name='emailCode' class='form-control' placeholder="Email Code" required="required"/>
-										   			<br/>
+										   			
+										   			
 										   			<label>Mobile Verification Code</label>
 										   			<input type=text name='mobileCode' class='form-control' placeholder="Mobile Code" required="required"/>
 										   			<br/>
@@ -151,9 +150,7 @@ Website: http://www.webthemez.com/
 										   %>
 										   		<form action='verification' method=post class='col-md-6' >
 										   			<input type=hidden name='req_type' value='generate_code' />
-										   			<label>Email</label>
-										   			<input type=text name='emailCode' value='<%=u1.getEmail() %>' readonly="readonly" class='form-control' placeholder="Email Code" />
-										   			<br/>
+										   		
 										   			<label>Mobile</label>
 										   			<input type=text name='mobileCode' value='<%=u1.getMobile() %>' readonly="readonly" class='form-control' placeholder="Mobile Code" />
 										   			<br/>
