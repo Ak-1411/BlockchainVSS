@@ -64,10 +64,8 @@ Website: http://www.webthemez.com/
 			</div>
 
 			<div
-				style='float: right; margin-top: 20px; margin-right: 20px; font-weight: bold;'>Ashok
-				Kumar Learning Center (AKLC)</div>
-
-		</nav>
+				style='float: right; margin-top: 20px; margin-right: 20px; font-weight: bold;'>XON LABS</div>
+						</nav>
 		<!--/. NAV TOP  -->
 		<nav class="navbar-default navbar-side" role="navigation">
 			<div class="sidebar-collapse">
@@ -129,15 +127,7 @@ Website: http://www.webthemez.com/
 						
 						<%
 							VerificationDAO vDao = new VerificationDAOImpl();
-							if (!vDao.isVerified(u1.getEmail()))
-							{
-						%>
-							<h4> Your Profile has not been verified yet.</h4>
-						
-						<% } else { %>
-						
-						<%
-							if (msg != null && msg.equals("Footage Retrieved"))
+						    if (msg != null && msg.equals("Footage Retrieved"))
 							{
 							   %>
 							   		<form action='retrieval'>
@@ -155,9 +145,7 @@ Website: http://www.webthemez.com/
 												</div>
 												
 										   		<form id='frm'  action='retrieval' method=post class='col-md-6' >
-										   			<input type=hidden name='req_type' value='verify' />
-										   			<label>Email Verification Code</label>
-										   			<input type=text name='emailCode' class='form-control' placeholder="Email Code" required="required"/>
+										   			<input type=hidden name='req_type' value='verify' />										   						   			
 										   			<br/>
 										   			<label>Mobile Verification Code</label>
 										   			<input type=text name='mobileCode' class='form-control' placeholder="Mobile Code" required="required"/>
@@ -175,7 +163,7 @@ Website: http://www.webthemez.com/
 							   						<hr/>
 							   						<label>Authorization Required for Footage Retrieval</label>
 							   						<hr/>
-							   						<label>The Verification Code will be sent to your registered Email and Mobile Number</label>
+							   						<label>The Verification Code will be sent to your registered  Mobile Number</label>
 							   						<hr/>
 							   						<%
 							   							BlockChainService bcService = new BlockChainService();
@@ -265,4 +253,4 @@ Website: http://www.webthemez.com/
 
 </html>
 
-<% } %>
+<% %>
