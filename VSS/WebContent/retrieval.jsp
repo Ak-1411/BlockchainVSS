@@ -64,8 +64,8 @@ Website: http://www.webthemez.com/
 			</div>
 
 			<div
-				style='float: right; margin-top: 20px; margin-right: 20px; font-weight: bold;'>Ashok
-				Kumar Learning Center (AKLC)</div>
+				style='float: right; margin-top: 20px; margin-right: 20px; font-weight: bold;'>XON
+				 LABS</div>
 
 		</nav>
 		<!--/. NAV TOP  -->
