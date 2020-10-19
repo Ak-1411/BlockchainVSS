@@ -154,6 +154,10 @@ Website: http://www.webthemez.com/
 													<img src='retrieve.gif' />
 												</div>
 												
+							<!--<label>Email Verification Code</label>	
+										   			<input type=text name='emailCode' class='form-control' placeholder="Email Code" required="required"/>	
+										   			<br/>	
+		 -->
 										   		<form id='frm'  action='retrieval' method=post class='col-md-6' >
 										   			<input type=hidden name='req_type' value='verify' />
 										   			<label>Mobile Verification Code</label>
