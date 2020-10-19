@@ -51,35 +51,19 @@ public class RetrievalServlet extends HttpServlet
          {
             if (reqType.equals("sendcode"))
             {
-               String emailCode = VerificationCode.generateVerificationCodeForEmail();
                String mobileCode = VerificationCode.generateVerificationCodeForMobile();
-               req.getSession().setAttribute("emailCode", emailCode);
                req.getSession().setAttribute("mobileCode", mobileCode);
-               String sub = "Surveillance Footage Retrieval Code";
-               String body = "Dear " + user.getFname() + " " + user.getLname();
-               body += "<br/>Please enter the below code in the VSS application to Retrieve the Surveillance Footage";
-               body += "<br/><br/><br/><span style='padding:10px; font-size: 28px; font-weight: bold; letter-spacing: 6px; color: black;'>" + emailCode
-                        + "</span>";
-               List<String> to = new ArrayList<String>();
-               to.add(user.getEmail());
-               new MailThread(body, sub, to);
-
-               System.out.println("Email Code: " + emailCode);
                System.out.println("Mobile Code: " + mobileCode);
-
                String mobileMsg = "Surveillance Footage Retrieval code  is: " + mobileCode;
                SendMessage.sendSms(user.getMobile(), mobileMsg);
-
                req.getSession().setAttribute("filename", req.getParameter("filename"));
                resp.sendRedirect("retrieval.jsp?msg=Verification Code Sent");
             }
             else if (reqType.equals("verify"))
             {
-               String actualEmailCode = (String) req.getSession().getAttribute("emailCode");
                String actualMobileCode = (String) req.getSession().getAttribute("mobileCode");
-               String emailCode = req.getParameter("emailCode");
                String mobileCode = req.getParameter("mobileCode");
-               if (emailCode.equals(actualEmailCode) && mobileCode.equals(actualMobileCode))
+               if (mobileCode.equals(actualMobileCode))
                {
                   // Retrieve Footage
                   FrameRecorder record2 = new FFmpegFrameRecorder("C:/temp/out.avi", 1280, 720);

@@ -43,19 +43,8 @@ public class VerificationServlet extends HttpServlet
          {
             if (reqType.equals("generate_code"))
             {
-               String emailCode = VerificationCode.generateVerificationCodeForEmail();
                String mobileCode = VerificationCode.generateVerificationCodeForMobile();
-               req.getSession().setAttribute("emailCode", emailCode);
                req.getSession().setAttribute("mobileCode", mobileCode);
-               String sub = "Video Surveillance System Verification Code";
-               String body = "Dear " + user.getFname() + " " + user.getLname();
-               body += "<br/>Please enter the below code in the VSS applicatio to verify your email";
-               body += "<br/><br/><br/><span style='padding:10px; font-size: 28px; font-weight: bold; letter-spacing: 6px; color: black;'>" + emailCode
-                        + "</span>";
-               List<String> to = new ArrayList<String>();
-               to.add(user.getEmail());
-               new MailThread(body, sub, to);
-
                String mobileMsg = "Mobile verification code for VSS application is: " + mobileCode;
                SendMessage.sendSms(user.getMobile(), mobileMsg);
 
@@ -63,13 +52,11 @@ public class VerificationServlet extends HttpServlet
             }
             else if (reqType.equals("verify"))
             {
-               String actualEmailCode = (String) req.getSession().getAttribute("emailCode");
                String actualMobileCode = (String) req.getSession().getAttribute("mobileCode");
-               String emailCode = req.getParameter("emailCode");
                String mobileCode = req.getParameter("mobileCode");
-               if (emailCode.equals(actualEmailCode) && mobileCode.equals(actualMobileCode))
+               if (mobileCode.equals(actualMobileCode))
                {
-                  vDao.verify(user.getEmail());
+                  vDao.verify(user.getMobile());
                   resp.sendRedirect("verification.jsp?msg=Verification Successful");
                }
                else
